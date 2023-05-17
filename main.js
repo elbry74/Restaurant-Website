@@ -1,6 +1,30 @@
 $(document).ready(function ($) {
     "use strict";
 
+    jQuery(".filters").on("click", function () {
+        jQuery("#menu-dish").removeClass("bydefault_show");
+    });
+    $(function () {
+        var filterList = {
+            init: function () {
+                $("#menu-dish").mixItUp({
+                    selectors: {
+                        target: ".dish-box-wp",
+                        filter: ".filter",
+                    },
+                    animation: {
+                        effects: "fade",
+                        easing: "ease-in-out",
+                    },
+                    load: {
+                        filter: ".all, .breakfast, .lunch, .dinner",
+                    },
+                });
+            },
+        };
+        filterList.init();
+    });
+
     jQuery(".menu-toggle").click(function () {
         jQuery(".main-navigation").toggleClass("toggled");
     });
@@ -26,4 +50,8 @@ $(document).ready(function ($) {
     }
     var scene = $(".js-parallax-scene").get(0);
     var parallaxInstance = new Parallax(scene);
+})
+
+jQuery(window).on('load' , function (){
+    $('body').removeClass('body-fixed');
 })
