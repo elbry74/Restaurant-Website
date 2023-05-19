@@ -84,7 +84,9 @@ function moveBar() {
             }
         });
         old = activeTab;
+        console.log(old)
         activeTab = this.index;
+        console.log(activeTab)
         animation.to(".filter-active", {
             x: targets[activeTab].offsetLeft,
             width: targets[activeTab].offsetWidth
